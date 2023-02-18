@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% include "nave.html" %}
+
+{% block content %}
+{% if error %}
+    <span style="color:gold">Email Must Be UNIQUE</span>
+{% endif %}
+        <form action="" method="POST">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+
+                <div class="form-group">
+                  {{form.username.label(class = "form-control-label")}}
+
+                    {% if form.username.errors %}
+                        {{form.username(class = "form-control is-invalid" )}}
+                        {% for error in form.username.errors %}
+                            <span style="color:gold">{{ error }}</span>
+                        {% endfor %}
+                    {%else%}
+                        {{form.username(class = 'form-control')}}
+                    {%endif%}
+                </div>
+
+                <div class="form-group">
+                    {{form.email.label(class = "form-control-label")}}
+                    {% if form.email.errors %}
+                        {{form.email(class = "form-control is-invalid" )}}
+                        {% for error in form.email.errors %}
+                            <span style="color:gold">{{ error }}</span>
+                        {% endfor %}
+                    {%else%}
+                        {{form.email(class = 'form-control')}}
+                    {%endif%}
+                </div>
+                <div class="form-group">
+                    {{form.password.label(class = "form-control-label")}}
+                    {% if form.password.errors %}
+                        {{form.password(class = "form-control is-invalid" )}}
+                        {% for error in form.password.errors %}
+                            <span style="color:gold">{{ error }}</span>
+                        {% endfor %}
+                    {%else%}
+                        {{form.password(class = 'form-control')}}
+                    {%endif%}
+                </div>
+                 <div class="form-group">
+                    {{form.confirmPassword.label(class = "form-control-label")}}
+                    {% if form.confirmPassword.errors %}
+                        {{form.confirmPassword(class = "form-control is-invalid" )}}
+                        {% for error in form.confirmPassword.errors %}
+                            <span style="color:gold">{{ error }}</span>
+                        {% endfor %}
+                    {%else%}
+                        {{form.confirmPassword(class = 'form-control')}}
+                    {%endif%}
+                </div>
+                <div class="form-group">
+                  {{form.submit(class="btn btn-warning")}}
+                </div>
+            </fieldset>
+        </form>
+{% endblock content %}
