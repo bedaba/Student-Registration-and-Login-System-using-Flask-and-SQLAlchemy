@@ -3,7 +3,7 @@
 
 {% block content %}
 {% if error %}
-    <span style="color:gold">Email Must Be UNIQUE</span>
+    <span style="color:gold">{{ error }}</span>
 {% endif %}
         <form action="" method="POST">
             {{ form.hidden_tag() }}
@@ -56,7 +56,7 @@
                     {%endif%}
                 </div>
                 <div class="form-group">
-                  {{form.submit(class="btn btn-warning")}}
+                  {{form.submit(class="btn btn-warning ")}}
                 </div>
             </fieldset>
         </form>
